@@ -2,6 +2,6 @@ analyze: everything.c
 	clang --analyze everything.c
 
 everything: everything.c
-	clang everything.c -o everything
+	clang -Wall everything.c -o everything
 
 
