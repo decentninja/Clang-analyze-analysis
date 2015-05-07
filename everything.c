@@ -25,10 +25,28 @@ void escape(int y) {
     }
 }
 
+// Should have thrown warning in static analyzer, did not
+int negativearray() {
+    int a = -10;
+    int* x = (int*) malloc(sizeof(int) * 10);
+    for(int i = 0; i < 10; i++) {
+        x[i] = i;
+    }
+    return x[a];
+}
+
+int garbagearray() {
+    int* x = (int*) malloc(sizeof(int) * 10);
+    x[0] = 1;
+    return x[2];
+}
+
 int main() {
     useafterfree();
     garbage();
     escape(0);
+    negativearray();
+    garbagearray();
     return 0;
 }
 
