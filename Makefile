@@ -1,6 +1,7 @@
-useafterfree: useafterfree.c
-	clang useafterfree.c -o useafterfree
+analyze: everything.c
+	clang --analyze everything.c
+
+everything: everything.c
+	clang everything.c -o everything
 
 
-analyze: useafterfree.c
-	clang --analyze useafterfree.c
